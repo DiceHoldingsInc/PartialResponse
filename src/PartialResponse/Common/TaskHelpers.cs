@@ -5,14 +5,14 @@ namespace System.Threading.Tasks
     /// <summary>
     /// Helpers for safely using Task libraries. 
     /// </summary>
-    internal static class TaskHelpers
+    public static class TaskHelpers
     {
         private static readonly Task _defaultCompleted = FromResult<AsyncVoid>(default(AsyncVoid));
 
         /// <summary>
         /// Returns a completed task that has no result. 
         /// </summary>        
-        internal static Task Completed()
+        public static Task Completed()
         {
             return _defaultCompleted;
         }
@@ -20,7 +20,7 @@ namespace System.Threading.Tasks
         /// <summary>
         /// Returns an error task. The task is Completed, IsCanceled = False, IsFaulted = True
         /// </summary>
-        internal static Task FromError(Exception exception)
+        public static Task FromError(Exception exception)
         {
             return FromError<AsyncVoid>(exception);
         }
@@ -29,7 +29,7 @@ namespace System.Threading.Tasks
         /// Returns an error task of the given type. The task is Completed, IsCanceled = False, IsFaulted = True
         /// </summary>
         /// <typeparam name="TResult"></typeparam>
-        internal static Task<TResult> FromError<TResult>(Exception exception)
+        public static Task<TResult> FromError<TResult>(Exception exception)
         {
             TaskCompletionSource<TResult> tcs = new TaskCompletionSource<TResult>();
             tcs.SetException(exception);
@@ -39,7 +39,7 @@ namespace System.Threading.Tasks
         /// <summary>
         /// Returns a successful completed task with the given result.  
         /// </summary>        
-        internal static Task<TResult> FromResult<TResult>(TResult result)
+        public static Task<TResult> FromResult<TResult>(TResult result)
         {
             TaskCompletionSource<TResult> tcs = new TaskCompletionSource<TResult>();
             tcs.SetResult(result);
@@ -49,7 +49,7 @@ namespace System.Threading.Tasks
         /// <summary>
         /// Used as the T in a "conversion" of a Task into a Task{T}
         /// </summary>
-        private struct AsyncVoid
+        public struct AsyncVoid
         {
         }
     }

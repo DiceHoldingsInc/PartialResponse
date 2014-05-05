@@ -9,9 +9,9 @@ using System.Text;
 
 namespace PartialResponse.Net.Http.Formatting
 {
-    internal static class PartialJsonMediaTypeFormatterUtilities
+    public static class PartialJsonMediaTypeFormatterUtilities
     {
-        internal static string GetRegexPatternForField(string value)
+        public static string GetRegexPatternForField(string value)
         {
             var patternBuilder = new StringBuilder();
             var parts = value.Split('/');
@@ -40,7 +40,7 @@ namespace PartialResponse.Net.Http.Formatting
             return patternBuilder.ToString();
         }
 
-        internal static void RemovePropertiesAndArrayElements(object value, JsonTextWriter jsonTextWriter, JsonSerializer jsonSerializer, Func<string, bool> shouldSerialize)
+        public static void RemovePropertiesAndArrayElements(object value, JsonTextWriter jsonTextWriter, JsonSerializer jsonSerializer, Func<string, bool> shouldSerialize)
         {
             if (value == null)
             {

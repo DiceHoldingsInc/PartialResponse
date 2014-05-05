@@ -44,7 +44,7 @@ namespace System.Net.Http
             return false;
         }
 
-        internal static HttpContextBase GetHttpContext(this HttpRequestMessage request)
+        public static HttpContextBase GetHttpContext(this HttpRequestMessage request)
         {
             object value;
 

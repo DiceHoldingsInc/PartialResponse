@@ -5,11 +5,11 @@ using System.Text.RegularExpressions;
 
 namespace PartialResponse.Net.Http.Formatting
 {
-    internal static class Fields
+    public static class Fields
     {
         private const string ValidationPattern = @"^\s*(\*|([^\/&^*&^,&^\s]+(/[^\/&^*&^,&^\s]+)*(/\*)?))(\s*,\s*(\*|([^\/&^*&^,&^\s]+(/[^\/&^*&^,&^\s]+)*(/\*)?)))*\s*$";
 
-        internal static bool TryParse(string s, out Collection<string> result)
+        public static bool TryParse(string s, out Collection<string> result)
         {
             var temp = new Collection<string>();
 
